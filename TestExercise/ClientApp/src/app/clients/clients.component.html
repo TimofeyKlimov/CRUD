@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <th>ИНН</th>
+        <th>Наименование</th>
+        <th>Тип</th>
+        <th>Дата добавления</th>
+        <th>Дата обновления</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let client of clients">
+            <ng-template [ngTemplateOutlet]="loadTemplate(client)"
+                         [ngTemplateOutletContext]="{$implicit: client}">
+
+            </ng-template>
+        </tr>
+    </tbody>
+</table>
+<ng-template #readOnlyTemplate let-client>
+    <td>{{client.TIN}}</td>
+    <td>{{client.Name}}</td>
+    <td></td>
+    <td>{{client.CreateDate}}</td>
+    <td></td>
+</ng-template>
