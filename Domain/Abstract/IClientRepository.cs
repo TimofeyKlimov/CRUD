@@ -8,5 +8,6 @@ namespace Domain.Abstract
     public interface IClientRepository
     {
         IEnumerable<Client> GetAllClients();
+        Guid Update(Client client);
     }
 }

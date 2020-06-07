@@ -1,4 +1,5 @@
 export class Client{
+    public ID:string
     public TIN:string;
     public Name:string;
     public ClientType:string;

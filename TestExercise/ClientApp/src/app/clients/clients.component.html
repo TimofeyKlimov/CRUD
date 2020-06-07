@@ -1,3 +1,4 @@
+<a class="btn btn-primary" [routerLink]="['/addclient']">Добавить</a>
 <table class="table">
     <thead>
         <th>ИНН</th>
@@ -5,6 +6,8 @@
         <th>Тип</th>
         <th>Дата добавления</th>
         <th>Дата обновления</th>
+        <th></th>
+        <th></th>
     </thead>
     <tbody>
         <tr *ngFor="let client of clients">
@@ -15,10 +18,35 @@
         </tr>
     </tbody>
 </table>
+<ng-template #editTemplate>
+    <td>
+        <input type="text" [(ngModel)]="editClient.TIN" class="form-control"/>
+    </td>
+    <td>
+        <input type="text" [(ngModel)]="editClient.Name" class="form-control"/>
+    </td>
+    <td>
+       <select class="form-control" #select>
+           <option class="form-control">{{editClient.ClientType}}</option>
+           <option class="form-control">{{OneOfclientType}}</option>
+       </select>
+    </td>
+    <td>{{editClient.CreateDate}}</td>
+    <td></td>
+    <td>
+        <button class="btn btn-success" (click)="Accept()">Принять</button>
+    </td>
+</ng-template>
 <ng-template #readOnlyTemplate let-client>
     <td>{{client.TIN}}</td>
     <td>{{client.Name}}</td>
-    <td></td>
+    <td>{{client.ClientType}}</td>
     <td>{{client.CreateDate}}</td>
-    <td></td>
+    <td>{{client.UpdateDate}}</td>
+    <td>
+        <button  class="btn btn-primary" (click)="Edit(client)">Изменить</button>
+    </td>
+    <td>
+        <button class="btn btn-danger">Удалить</button>
+    </td>
 </ng-template>

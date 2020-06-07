@@ -11,7 +11,8 @@ namespace Domain.Context
     {
         public ClientContext() 
         {
-            Database.EnsureCreated();
+            this.Database.EnsureDeleted();
+            this.Database.EnsureCreated();
         }
         public DbSet<Client> Clients { get; set; }
 
@@ -37,7 +38,7 @@ namespace Domain.Context
                     Id = Guid.NewGuid(),
                     Name = "TestName",
                     TIN = 258778601124,
-                    ClientType = ClientType.IndividualEntrepreneur,
+                    ClientType = ClientType.IndividualEntrepreneur.ToString(),
                     CreateDate = DateTime.Now
                 });
 

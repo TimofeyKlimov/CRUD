@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import {CommonModule} from "@angular/common";
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import {ChildComponent} from './clients/clients.component';
+import {ClientComponent} from './clients/clients.component';
+import { AddClientComponent } from './addClient/addclient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    ChildComponent
+    ClientComponent,
+    AddClientComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -20,7 +22,8 @@ import {ChildComponent} from './clients/clients.component';
     CommonModule,
     FormsModule,
     RouterModule.forRoot([
-     {path : '', component:ChildComponent}
+     {path : '', component:ClientComponent},
+     {path:'addclient',component:AddClientComponent}
     ])
   ],
   providers: [],
