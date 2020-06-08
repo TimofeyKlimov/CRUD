@@ -1,0 +1,21 @@
+<div class="col-md-6">
+    <div class="form-group">
+        <label>ИНН</label>
+        <input type="text" [(ngModel)]="client.TIN" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label>Наименование</label>
+        <input type="text" [(ngModel)]="client.Name" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Тип</label>
+        <select class="form-control" #select>
+            <option>IndividualEntrepreneur</option>
+            <option>LegalEntity</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Добавить" (click)="Add()">
+    </div>
+</div>

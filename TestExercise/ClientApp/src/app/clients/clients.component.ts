@@ -1,7 +1,6 @@
 import { Component, Renderer2, ElementRef, ViewChild, TemplateRef, OnInit } from '@angular/core';
 import { Client } from '../model/client';
 import { ClientService } from '../Services/ClientService';
-import {Error} from '../model/'
 
 @Component({
     templateUrl:"clients.component.html",
