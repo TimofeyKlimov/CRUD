@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Tasks;
-using Domain.Abstract;
-using Domain.Context;
+﻿using System.Threading.Tasks;
 using Domain.Contract;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TestExercise.Commands;
-using TestExercise.Handlers;
 using TestExercise.Queries;
 
 namespace TestExercise.Controllers
@@ -33,10 +26,16 @@ namespace TestExercise.Controllers
         }
         [HttpPost]
         [Route("api/update")]
-        public async Task<IActionResult> Put([FromBody] UpdateClientContract contract)
+        public async Task<IActionResult> Update([FromBody] UpdateClientContract contract)
         {
+  
             var result = await mediator.Send(new UpdateClientCommand(contract));
-            return Ok(result);
+            if(result.ErrorModels.Count > 0)
+            {
+                return new BadRequestObjectResult(result.ErrorModels);
+            }
+            return Ok();
+          
         }
 
 

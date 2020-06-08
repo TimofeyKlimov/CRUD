@@ -1,6 +1,7 @@
 import { Component, Renderer2, ElementRef, ViewChild, TemplateRef, OnInit } from '@angular/core';
 import { Client } from '../model/client';
 import { ClientService } from '../Services/ClientService';
+import {Error} from '../model/'
 
 @Component({
     templateUrl:"clients.component.html",
@@ -20,6 +21,7 @@ export class ClientComponent implements OnInit{
     public editClient:Client
     public clients:Client[]
     public OneOfclientType;
+    errirs:Error[]
     private clientType=["IndividualEntrepreneur","LegalEntity"]
     @ViewChild('editTemplate',{static:false}) editTemplate:TemplateRef<any>;
     @ViewChild('readOnlyTemplate',{static:false}) readOnlyTemplate:TemplateRef<any>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestExercise.Commands
 {
-    public class UpdateClientCommand : IRequest<object>
+    public class UpdateClientCommand : IRequest<ErrorResponse>
     {
 
         public UpdateClientCommand(UpdateClientContract updateClient)

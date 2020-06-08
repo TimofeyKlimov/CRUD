@@ -2,6 +2,7 @@ using AutoMapper;
 using Domain.Abstract;
 using Domain.Context;
 using Domain.EF6Repository;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TestExercise.Configuration;
+using TestExercise.PipelinesBehavior;
 
 namespace TestExercise
 {
@@ -36,6 +38,8 @@ namespace TestExercise
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddMediatR(typeof(Startup));
             services.AddMapper();
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorBehavior<,>));
+            services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
