@@ -16,4 +16,13 @@ public updateUser(client:Client){
     return this.http.post("http://localhost:53037/api/update",JSON.stringify(client),{headers:headers});
 }
 
+public createUser(client:Client){
+    const headers = new HttpHeaders().set("Content-Type","application/json");
+    return this.http.post("http://localhost:53037/api/create",JSON.stringify(client),{headers:headers});
+}
+
+public deleteUser(client:Client){
+    const headers = new HttpHeaders().set("Content-Type","application/json");
+    return this.http.post("http://localhost:53037/api/delete",JSON.stringify(client),{headers:headers});
+}
 }

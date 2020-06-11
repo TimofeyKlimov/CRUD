@@ -27,7 +27,7 @@ namespace TestExercise.Handlers
 
             var client = mapper.Map<Client>(request.UpdateClient);
             clientRepository.Update(client);
-            return await Task.Run(() => new ErrorResponse(null));
+            return await Task.Run(() => new ErrorResponse());
         }
     }
 }

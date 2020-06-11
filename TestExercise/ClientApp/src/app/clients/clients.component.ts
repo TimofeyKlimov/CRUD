@@ -48,6 +48,12 @@ export class ClientComponent implements OnInit{
       return value;
     }
 
+    delete(client:Client){
+        this.clientService.deleteUser(client).subscribe(s =>{
+            this.loadClients()
+        })
+    }
+
     Accept(){
        let type:string = this.select.nativeElement.value; 
        this.editClient.ClientType = type;

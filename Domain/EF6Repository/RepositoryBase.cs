@@ -18,11 +18,15 @@ namespace Domain.EF6Repository
         public void AddEntity(T entity)
         {
             _context.Set<T>().Add(entity);
+            _context.Entry(entity).State = EntityState.Added;
+            _context.SaveChanges();
         }
 
         public void RemoveEntity(T entity)
         {
             _context.Set<T>().Remove(entity);
+            _context.Entry(entity).State = EntityState.Deleted;
+            _context.SaveChanges();
         }
     }
 }

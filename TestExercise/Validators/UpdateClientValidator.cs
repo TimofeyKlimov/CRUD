@@ -14,7 +14,8 @@ namespace TestExercise.Validators
         {
             RuleFor(s => s.UpdateClient.Name).NotEmpty().NotNull();
             RuleFor(s => s.UpdateClient.ClientType).NotEmpty().NotNull();
-            RuleFor(s => s.UpdateClient.TIN).NotNull().NotEmpty();
+            RuleFor(s => s.UpdateClient.TIN).NotNull().NotEmpty()
+                .Matches(@"\d{12}");
         }
     }
 }

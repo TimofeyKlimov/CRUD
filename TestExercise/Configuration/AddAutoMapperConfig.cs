@@ -29,6 +29,12 @@ namespace TestExercise.Configuration
                                 .ForMember("Name", c => c.MapFrom(c => c.Name))
                                 .ForMember("ClientType", c => c.MapFrom(c => Enum.Parse(typeof(ClientType), c.ClientType)))
                                 .ForMember("CreateDate", c => c.MapFrom(c => DateTime.Parse(c.CreateDate)));
+                s.CreateMap<CreateClientContract, Client>()
+                                    .ForMember("Id", c => c.MapFrom(c => Guid.NewGuid()))
+                                    .ForMember("TIN", c => c.MapFrom(c => long.Parse(c.TIN)))
+                                    .ForMember("Name", c => c.MapFrom(c => c.Name))
+                                    .ForMember("ClientType", c => c.MapFrom(c => Enum.Parse(typeof(ClientType), c.ClientType)))
+                                    .ForMember("CreateDate", c => c.MapFrom(c => DateTime.Now));
             });
             var mapper = new Mapper(config);
 

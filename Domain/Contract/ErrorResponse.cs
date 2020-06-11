@@ -7,11 +7,12 @@ namespace Domain.Contract
 {
     public class ErrorResponse
     {
-        public ErrorResponse(List<ErrorModel> errorModels)
+        public ErrorResponse(List<ErrorModel> errorModels = null)
         {
             ErrorModels = errorModels;
         }
 
         public List<ErrorModel> ErrorModels { get; }
+
     }
 }
